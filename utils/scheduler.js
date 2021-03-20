@@ -70,7 +70,7 @@ let scheduler = {
             let options = tasks[taskName].options || {}
             let willTime = moment(randomDate(options));
             // 任务的随机延迟时间
-            let waitTime = options.dev ? 0 : Math.floor(Math.random() * (options.waitTime || 300))
+            let waitTime = options.dev ? 0 : Math.floor(Math.random() * (options.waitTime || 30))
             if (options) {
                 if (options.isCircle || options.dev) {
                     willTime = moment().startOf('days');
@@ -90,7 +90,7 @@ let scheduler = {
             queues.push({
                 taskName: taskName,
                 taskState: 0,
-                willTime: willTime.format('YYYY-MM-DD HH:mm:ss'),
+                willTime: 0,
                 waitTime: waitTime
             })
         }
